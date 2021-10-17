@@ -10,13 +10,49 @@ const Signup = styled.div`
   & > form {
     border-radius: 10px;
     background-color: ${({ theme }) =>
-      theme.type === "dark" ? "#212121" : "#cacaca"};
+      theme.type === "dark" ? "#212121" : "#e2e2e2"};
+    box-shadow: ${({ theme }) =>
+      theme.type === "dark" ? "0 2px 5px 0 #111" : " 0 5px 10px 0 #bbb"};
     width: 90%;
     max-width: 500px;
-    height: 500px;
+    height: 400px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-evenly;
+
+    h1 {
+      font-family: "Pacifico", cursive;
+    }
+  }
+`;
+
+export const SignInBtn = styled.button`
+  font-size: 1.1rem;
+  display: flex;
+  width: 90%;
+  max-width: 250px;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: ${({ loading }) => (loading ? "#555 " : "var(--primary-main)")};
+  border-radius: 5px;
+  --moz-appearance: none;
+  --webkit-appearance: none;
+  appearance: none;
+  outline: 0;
+  border: 0;
+  i {
+    color: ${({ loading }) => (loading ? "#676767" : "#a53737")};
+  }
+
+  &:focus,
+  &:active {
+    outline: 0;
+    border: 0;
+  }
+
+  &:active {
+    transform: scale(0.99);
   }
 `;
 

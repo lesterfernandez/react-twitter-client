@@ -1,6 +1,6 @@
 export const lightTheme = {
   type: "light",
-  body: "#f1f1f1",
+  body: "#eaeaea",
   text: "#121620",
 };
 export const darkTheme = {

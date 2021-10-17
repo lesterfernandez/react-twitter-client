@@ -17,6 +17,10 @@ body {
   box-sizing: border-box;
 }
 
+:root {
+  --primary-main: #aaccff;
+}
+
 `;
 
 export default GlobalStyle;
