@@ -5,6 +5,7 @@ const Signup = () => {
   const [loading, setLoading] = useState(false);
   const handleSubmit = e => {
     e.preventDefault();
+    if (loading) return;
     setLoading(true);
     console.log(e.target);
     // login here

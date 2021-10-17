@@ -35,6 +35,7 @@ export const SignInBtn = styled.button`
   justify-content: space-evenly;
   align-items: center;
   background-color: ${({ loading }) => (loading ? "#555 " : "var(--primary-main)")};
+  cursor: ${({ loading }) => (loading ? "normal" : "pointer")};
   border-radius: 5px;
   --moz-appearance: none;
   --webkit-appearance: none;
@@ -52,7 +53,7 @@ export const SignInBtn = styled.button`
   }
 
   &:active {
-    transform: scale(0.99);
+    transform: ${({ loading }) => (loading ? "scale(1)" : "scale(0.98)")};
   }
 `;
 
