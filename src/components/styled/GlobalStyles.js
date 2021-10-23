@@ -19,6 +19,7 @@ body {
 
 :root {
   --primary-main: #aaccff;
+  --primary-main-dark: #88aadd;
 }
 
 `;

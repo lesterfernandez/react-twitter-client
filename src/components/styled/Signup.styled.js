@@ -34,8 +34,9 @@ export const SignInBtn = styled.button`
   max-width: 250px;
   justify-content: space-evenly;
   align-items: center;
-  background-color: ${({ loading }) => (loading ? "#555 " : "var(--primary-main)")};
-  cursor: ${({ loading }) => (loading ? "normal" : "pointer")};
+  background-color: ${({ loading }) =>
+    loading === "true" ? "#555 " : "var(--primary-main)"};
+  cursor: ${({ loading }) => (loading === "true" ? "normal" : "pointer")};
   border-radius: 5px;
   --moz-appearance: none;
   --webkit-appearance: none;
@@ -43,7 +44,12 @@ export const SignInBtn = styled.button`
   outline: 0;
   border: 0;
   i {
-    color: ${({ loading }) => (loading ? "#676767" : "#a53737")};
+    color: ${({ loading }) => (loading === "true" ? "#676767" : "#a53737")};
+  }
+
+  &:hover {
+    background-color: ${({ loading }) =>
+      loading ? "#5a5a5a " : "var(--primary-main-dark)"};
   }
 
   &:focus,
@@ -53,7 +59,8 @@ export const SignInBtn = styled.button`
   }
 
   &:active {
-    transform: ${({ loading }) => (loading ? "scale(1)" : "scale(0.98)")};
+    transform: ${({ loading }) =>
+      loading === "true" ? "scale(1)" : "scale(0.98)"};
   }
 `;
 
