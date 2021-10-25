@@ -18,7 +18,13 @@ function App() {
       <GlobalStyles />
       <BrowserRouter>
         <StyledApp>
-          {user ? <SignedInApp toggleTheme={toggleTheme} /> : <Signup />}
+          {user.loggedIn === null ? (
+            ""
+          ) : user.loggedIn ? (
+            <SignedInApp toggleTheme={toggleTheme} />
+          ) : (
+            <Signup />
+          )}
         </StyledApp>
       </BrowserRouter>
     </ThemeProvider>

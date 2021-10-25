@@ -8,7 +8,6 @@ const SignedInApp = () => {
   return (
     <>
       <Nav />
-      <pre>{JSON.stringify(user, null, 2)}</pre>
       <StyledSignedInApp>hello</StyledSignedInApp>
     </>
   );
