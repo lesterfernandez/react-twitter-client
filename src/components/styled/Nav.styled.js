@@ -7,7 +7,7 @@ const Nav = styled.nav`
   height: 100vh;
   transform-origin: bottom;
   ${({ opened }) => (opened ? "" : "transform: translateX(-100%);")}
-
+  transition: transform 150ms ease-in-out;
   & > * {
     font-size: 1rem;
     outline: 0;
@@ -86,7 +86,7 @@ export const PostButton = styled.button`
   font-size: 2rem;
   margin-bottom: 2rem;
   border-radius: 5px;
-  outline: 2px solid white;
+  outline: 3px solid white;
   padding: 5px 10px;
   @media (min-width: 600px) {
     transition: all 150ms ease-in;

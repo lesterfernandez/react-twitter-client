@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { BrowserRouter } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
+import ModalContext from "./components/ModalContext";
 import SignedInApp from "./components/SignedInApp";
 import Signup from "./components/Signup";
 import StyledApp from "./components/styled/App.styled";
@@ -21,7 +22,9 @@ function App() {
           {user.loggedIn === null ? (
             ""
           ) : user.loggedIn ? (
-            <SignedInApp toggleTheme={toggleTheme} />
+            <ModalContext>
+              <SignedInApp toggleTheme={toggleTheme} />
+            </ModalContext>
           ) : (
             <Signup />
           )}

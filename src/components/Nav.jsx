@@ -1,9 +1,11 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
+import { Modal } from "./ModalContext";
 import StyledNav, { NavButton, PostButton } from "./styled/Nav.styled";
 
 const Nav = () => {
   const [opened, setOpened] = useState(false);
+  const { togglePostModal } = useContext(Modal);
   return (
     <StyledNav opened={opened}>
       {opened === true ? (
@@ -37,7 +39,7 @@ const Nav = () => {
       <PostButton
         onClick={() => {
           setOpened(false);
-          // open modal
+          togglePostModal();
         }}
       >
         <i className="fas fa-plus" />
