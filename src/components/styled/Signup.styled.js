@@ -30,6 +30,7 @@ const Signup = styled.div`
 export const SignInBtn = styled.button`
   font-size: 1.1rem;
   display: flex;
+  padding: 1rem 0;
   width: 90%;
   max-width: 250px;
   justify-content: space-evenly;

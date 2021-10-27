@@ -7,8 +7,10 @@ const Signup = () => {
   const handleSubmit = e => {
     e.preventDefault();
     if (loading) return;
+    setLoading(true);
     const str = `${process.env.REACT_APP_SERVER_URL}/auth/google`;
     window.open(str, "_self");
+    setLoading(false);
   };
 
   return (

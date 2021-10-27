@@ -1,14 +1,19 @@
-import { useContext } from "react";
-import { UserContext } from "../UserContext";
+import { Route } from "react-router";
 import Nav from "./Nav";
 import StyledSignedInApp from "./styled/SignedInApp.styled";
 
 const SignedInApp = () => {
-  const user = useContext(UserContext);
   return (
     <>
       <Nav />
-      <StyledSignedInApp>hello</StyledSignedInApp>
+      <StyledSignedInApp>
+        <Route exact path="/">
+          home
+        </Route>
+        <Route exact path="/account">
+          acc
+        </Route>
+      </StyledSignedInApp>
     </>
   );
 };
