@@ -8,6 +8,7 @@ const Nav = styled.nav`
   transform-origin: bottom;
   ${({ opened }) => (opened ? "" : "transform: translateX(-100%);")}
   transition: transform 150ms ease-in-out;
+  box-shadow: ${({ theme }) => theme.shadow};
   & > * {
     font-size: 1rem;
     outline: 0;

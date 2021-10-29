@@ -12,7 +12,7 @@ const Signup = styled.div`
     background-color: ${({ theme }) =>
       theme.type === "dark" ? "#212121" : "#e2e2e2"};
     box-shadow: ${({ theme }) =>
-      theme.type === "dark" ? "0 2px 5px 0 #111" : " 0 5px 10px 0 #bbb"};
+      theme.type === "dark" ? "0 2px 5px 0 #111" : "0 5px 10px 0 #bbb"};
     width: 90%;
     max-width: 500px;
     height: 400px;
