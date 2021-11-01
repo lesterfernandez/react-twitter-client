@@ -2,6 +2,7 @@ import { useContext, useRef } from "react";
 import useForm from "../hooks/useForm";
 import { Modal } from "./ModalContext";
 import StyledPostModal, { PostForm } from "./styled/PostModal.styled";
+// import { useQuery } from "react-query";
 
 const PostModal = () => {
   const [formValues, setForm, clearForm] = useForm({ post: "" });

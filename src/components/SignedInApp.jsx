@@ -7,13 +7,19 @@ import Nav from "./Nav";
 import PostModal from "./PostModal";
 import StyledSignedInApp from "./styled/SignedInApp.styled";
 
-const queryClient = new QueryClient();
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      staleTime: 1000 * 20, // data stale after 20 seconds
+    },
+  },
+});
 
-const SignedInApp = () => {
+const SignedInApp = ({ toggleTheme }) => {
   const { modalState } = useContext(Modal);
   return (
     <QueryClientProvider client={queryClient}>
-      <Nav />
+      <Nav toggleTheme={toggleTheme} />
       {modalState && <PostModal />}
 
       <StyledSignedInApp>
