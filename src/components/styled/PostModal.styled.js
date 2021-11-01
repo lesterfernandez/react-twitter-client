@@ -69,4 +69,8 @@ export const PostForm = styled.form`
       transform: scale(0.98);
     }
   }
+
+  & > sub {
+    text-align: center;
+  }
 `;
