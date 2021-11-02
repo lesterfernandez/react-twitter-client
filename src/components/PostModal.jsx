@@ -1,13 +1,18 @@
 import { useContext, useRef } from "react";
+import { useFeedQuery } from "../hooks/useFeedQuery";
 import useForm from "../hooks/useForm";
 import { Modal } from "./ModalContext";
 import StyledPostModal, { PostForm } from "./styled/PostModal.styled";
-// import { useQuery } from "react-query";
 
 const PostModal = () => {
   const [formValues, setForm, clearForm] = useForm({ post: "" });
   const { togglePostModal } = useContext(Modal);
   const modalBackground = useRef();
+
+  // console.log("render postmodal");
+
+  const { refetch } = useFeedQuery();
+
   return (
     <StyledPostModal
       ref={modalBackground}
@@ -28,12 +33,9 @@ const PostModal = () => {
             credentials: "include",
             method: "POST",
             body: JSON.stringify({ post: formValues.post }),
-          })
-            .catch(err => console.log(err))
-            .then(res => res.json())
-            .then(data => {
-              console.log(data.posts);
-            });
+          }).then(() => {
+            refetch();
+          });
 
           clearForm({ post: "" });
           togglePostModal();

@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { QueryClient, QueryClientProvider } from "react-query";
+import { ReactQueryDevtools } from "react-query/devtools";
 import { Route } from "react-router";
 import Feed from "./Feed";
 import { Modal } from "./ModalContext";
@@ -7,13 +8,7 @@ import Nav from "./Nav";
 import PostModal from "./PostModal";
 import StyledSignedInApp from "./styled/SignedInApp.styled";
 
-const queryClient = new QueryClient({
-  defaultOptions: {
-    queries: {
-      staleTime: 1000 * 20, // data stale after 20 seconds
-    },
-  },
-});
+const queryClient = new QueryClient();
 
 const SignedInApp = ({ toggleTheme }) => {
   const { modalState } = useContext(Modal);
@@ -30,6 +25,7 @@ const SignedInApp = ({ toggleTheme }) => {
           acc
         </Route>
       </StyledSignedInApp>
+      <ReactQueryDevtools initialIsOpen={false} position="bottom-right" />
     </QueryClientProvider>
   );
 };
