@@ -1,22 +1,26 @@
 import { useContext } from "react";
-import { useQuery } from "react-query";
+import { useInfiniteQuery } from "react-query";
 import { UserContext } from "../UserContext";
 
 export const useFeedQuery = () => {
   const { loggedIn } = useContext(UserContext);
-  return useQuery(
+  return useInfiniteQuery(
     ["feed", loggedIn],
-    async () => {
-      const res = await fetch(`${process.env.REACT_APP_SERVER_URL}/feed`, {
-        credentials: "include",
-      });
+    async ({ pageParam = 0 }) => {
+      const res = await fetch(
+        `${process.env.REACT_APP_SERVER_URL}/feed?min=${pageParam}`,
+        {
+          credentials: "include",
+        }
+      );
       if (!res.ok) {
         throw new Error("Something went wrong...");
       }
       return res.json();
     },
     {
-      refetchInterval: 10000,
+      getNextPageParam: (lastPage, _) =>
+        lastPage.posts.length === 5 ? lastPage.min : undefined,
     }
   );
 };
