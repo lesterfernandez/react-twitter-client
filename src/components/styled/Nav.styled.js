@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const Nav = styled.nav`
-  background-color: #313131;
+  background-color: ${({ theme }) => theme.elevation_3};
   position: fixed;
   padding: 3rem 1.3rem;
   height: 100vh;
@@ -27,7 +27,8 @@ const Nav = styled.nav`
   @media (min-width: 600px) {
     transform: translatex(0);
     height: auto;
-    position: relative;
+    position: sticky;
+    top: 0;
     width: 100%;
     display: flex;
     align-items: center;

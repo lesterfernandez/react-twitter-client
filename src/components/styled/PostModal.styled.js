@@ -4,26 +4,29 @@ const PostModal = styled.div`
   background-color: #222c;
   position: absolute;
   inset: 0;
+  position: fixed;
 `;
 
 export default PostModal;
 
 export const PostForm = styled.form`
-  position: relative;
+  position: fixed;
+  /* Center form without flexbox*/
   top: 50%;
-  transform: translateY(-50%);
-  border-radius: 10px;
-  margin: auto;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
   width: 90%;
   max-width: 500px;
-  background-color: #aaa5;
   padding: 3rem 1rem 2rem;
+  border-radius: 10px;
+  background-color: #5f5f5fcc;
+  box-shadow: ${({ theme }) => theme.shadow};
+
   display: flex;
   flex-direction: column;
-  background-color: #aaa5;
   align-items: center;
   gap: 1.2rem;
-  box-shadow: ${({ theme }) => theme.shadow};
 
   & > textarea {
     font-family: "Montserrat", -apple-system, "Roboto", "Oxygen", "Ubuntu",
