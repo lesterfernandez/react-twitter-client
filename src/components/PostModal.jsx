@@ -1,6 +1,7 @@
 import { useContext, useRef } from "react";
 import { useFeedQuery } from "../hooks/useFeedQuery";
 import useForm from "../hooks/useForm";
+import useMyPostsQuery from "../hooks/useMyPostsQuery";
 import { Modal } from "./ModalContext";
 import StyledPostModal, { PostForm } from "./styled/PostModal.styled";
 
@@ -9,9 +10,9 @@ const PostModal = () => {
   const { togglePostModal } = useContext(Modal);
   const modalBackground = useRef();
 
-  // console.log("render postmodal");
-
-  const { refetch } = useFeedQuery();
+  // show new post instantly when user posts
+  const { refetch: refetchFeed } = useFeedQuery();
+  const { refetch: refetchMyPosts } = useMyPostsQuery();
 
   return (
     <StyledPostModal
@@ -34,7 +35,8 @@ const PostModal = () => {
             method: "POST",
             body: JSON.stringify({ post: formValues.post }),
           }).then(() => {
-            refetch();
+            refetchFeed();
+            refetchMyPosts();
           });
 
           clearForm({ post: "" });

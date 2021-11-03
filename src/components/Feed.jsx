@@ -1,11 +1,9 @@
-import React from "react";
 import { useFeedQuery } from "../hooks/useFeedQuery";
 import Post from "./Post";
 import StyledFeed from "./styled/Feed.styled";
 
 const Feed = () => {
   const { data } = useFeedQuery();
-  // console.log("render feed");
 
   return (
     <StyledFeed>

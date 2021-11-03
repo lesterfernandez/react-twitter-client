@@ -15,7 +15,6 @@ const Context = ({ children }) => {
       })
       .then(res => res.json())
       .then(r => {
-        console.log(r);
         setUser({ ...r });
       });
   }, []);

@@ -4,6 +4,7 @@ import { ReactQueryDevtools } from "react-query/devtools";
 import { Route } from "react-router";
 import Feed from "./Feed";
 import { Modal } from "./ModalContext";
+import MyAccount from "./MyAccount";
 import Nav from "./Nav";
 import PostModal from "./PostModal";
 import StyledSignedInApp from "./styled/SignedInApp.styled";
@@ -22,7 +23,7 @@ const SignedInApp = ({ toggleTheme }) => {
           <Feed />
         </Route>
         <Route exact path="/account">
-          acc
+          <MyAccount />
         </Route>
       </StyledSignedInApp>
       <ReactQueryDevtools initialIsOpen={false} position="bottom-right" />
