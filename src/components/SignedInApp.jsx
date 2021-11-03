@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { QueryClient, QueryClientProvider } from "react-query";
-import { ReactQueryDevtools } from "react-query/devtools";
+// import { ReactQueryDevtools } from "react-query/devtools";
 import { Route } from "react-router";
 import Feed from "./Feed";
 import { Modal } from "./ModalContext";
@@ -26,7 +26,7 @@ const SignedInApp = ({ toggleTheme }) => {
           <MyAccount />
         </Route>
       </StyledSignedInApp>
-      <ReactQueryDevtools initialIsOpen={false} position="bottom-right" />
+      {/* <ReactQueryDevtools initialIsOpen={false} position="bottom-right" /> */}
     </QueryClientProvider>
   );
 };
