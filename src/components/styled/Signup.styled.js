@@ -10,7 +10,7 @@ const Signup = styled.div`
   & > form {
     border-radius: 10px;
     background-color: ${({ theme }) =>
-      theme.type === "dark" ? "#212121" : "#e2e2e2"};
+      theme.type === "dark" ? theme.elevation_1 : "#e2e2e2"};
     box-shadow: ${({ theme }) =>
       theme.type === "dark" ? "0 2px 5px 0 #111" : "0 5px 10px 0 #bbb"};
     width: 90%;

@@ -11,7 +11,7 @@ export const darkTheme = {
   type: "dark",
   // body: "#121620",
   body: "#121212",
-  elevation_1: "#2a2a2a",
+  elevation_1: "#242424",
   elevation_2: "#2f2f2f",
   elevation_3: "#353535",
   text: "#f1f1f1",
