@@ -1,7 +1,6 @@
 import { useContext, useRef } from "react";
-import { useFeedQuery } from "../hooks/useFeedQuery";
 import useForm from "../hooks/useForm";
-import useMyPostsQuery from "../hooks/useMyPostsQuery";
+import useSendPost from "../hooks/useSendPost";
 import { Modal } from "./ModalContext";
 import StyledPostModal, { PostForm } from "./styled/PostModal.styled";
 
@@ -10,9 +9,7 @@ const PostModal = () => {
   const { togglePostModal } = useContext(Modal);
   const modalBackground = useRef();
 
-  // show new post instantly when user posts
-  const { refetch: refetchFeed } = useFeedQuery();
-  const { refetch: refetchMyPosts } = useMyPostsQuery();
+  const { mutate: sendPost } = useSendPost();
 
   return (
     <StyledPostModal
@@ -28,16 +25,7 @@ const PostModal = () => {
           e.preventDefault();
           if (formValues.post === "") return;
 
-          // send post to server
-          fetch(`${process.env.REACT_APP_SERVER_URL}/new_post`, {
-            headers: { "Content-Type": "application/json" },
-            credentials: "include",
-            method: "POST",
-            body: JSON.stringify({ post: formValues.post }),
-          }).then(() => {
-            refetchFeed();
-            refetchMyPosts();
-          });
+          sendPost(JSON.stringify({ post: formValues.post }));
 
           clearForm({ post: "" });
           togglePostModal();
