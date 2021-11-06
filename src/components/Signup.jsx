@@ -8,8 +8,9 @@ const Signup = () => {
     e.preventDefault();
     if (loading) return;
     setLoading(true);
-    const str = `${process.env.REACT_APP_SERVER_URL}/auth/google`;
-    window.open(str, "_self");
+    // const str = `${process.env.REACT_APP_SERVER_URL}/auth/google`;
+    // window.open(str, "_self");
+    window.location = `${process.env.REACT_APP_SERVER_URL}/auth/google`;
     setLoading(false);
   };
 
