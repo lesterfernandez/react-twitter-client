@@ -11,6 +11,7 @@ const Context = ({ children }) => {
     })
       .catch(() => {
         console.log("error fetching");
+        setUser({ loggedIn: false });
         return;
       })
       .then(res => res.json())
